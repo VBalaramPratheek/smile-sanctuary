@@ -110,30 +110,6 @@ function IconForService({ kind }: { kind: string }) {
 function Index() {
   return (
     <div className="min-h-screen bg-background font-body text-brand-900">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-brand-900/5 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#" className="flex items-center gap-2">
-            <div className="size-8 rounded-lg bg-brand-600" aria-hidden />
-            <span className="font-heading text-xl font-bold tracking-tight">
-              Lumina Dental
-            </span>
-          </a>
-          <div className="hidden items-center gap-8 text-sm font-medium md:flex">
-            <a href="#services" className="text-brand-900/70 transition-colors hover:text-brand-600">Services</a>
-            <a href="#technology" className="text-brand-900/70 transition-colors hover:text-brand-600">Technology</a>
-            <a href="#team" className="text-brand-900/70 transition-colors hover:text-brand-600">Our Team</a>
-            <a href="#testimonials" className="text-brand-900/70 transition-colors hover:text-brand-600">Patients</a>
-            <a href="#contact" className="text-brand-900/70 transition-colors hover:text-brand-600">Contact</a>
-          </div>
-          <a
-            href="#book"
-            className="rounded-full bg-brand-900 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-brand-600 active:scale-95"
-          >
-            Book Consultation
-          </a>
-        </div>
-      </nav>
 
       {/* Hero */}
       <header className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32">
