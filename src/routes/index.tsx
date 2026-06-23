@@ -184,9 +184,9 @@ function Index() {
                 Specialized departments led by industry-leading consultants using the latest intra-oral technology.
               </p>
             </div>
-            <a href="#book" className="text-sm font-bold text-brand-600 hover:underline">
+            <Link to="/specialties" className="text-sm font-bold text-brand-600 hover:underline">
               Explore all 12 specialties &rarr;
-            </a>
+            </Link>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
