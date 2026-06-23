@@ -127,18 +127,19 @@ function Index() {
                 to complex rehabilitations, we combine master artistry with clinical precision.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href="#book"
+                <Link
+                  to="/contact"
+                  hash="book"
                   className="rounded-full bg-brand-600 px-8 py-4 font-bold text-white shadow-brand transition-all hover:bg-brand-900"
                 >
                   Schedule Visit
-                </a>
-                <a
-                  href="#gallery"
+                </Link>
+                <Link
+                  to="/specialties"
                   className="rounded-full border border-brand-900/10 px-8 py-4 font-bold transition-all hover:bg-brand-50"
                 >
-                  View Our Work
-                </a>
+                  View Specialties
+                </Link>
               </div>
               <dl className="mt-12 flex items-center gap-6 border-t border-brand-900/5 pt-8">
                 <div>
