@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroClinic from "@/assets/hero-clinic.jpg";
 import patientCare from "@/assets/patient-care.jpg";
 import doctorPortrait from "@/assets/doctor-portrait.jpg";
@@ -110,30 +110,6 @@ function IconForService({ kind }: { kind: string }) {
 function Index() {
   return (
     <div className="min-h-screen bg-background font-body text-brand-900">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-brand-900/5 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#" className="flex items-center gap-2">
-            <div className="size-8 rounded-lg bg-brand-600" aria-hidden />
-            <span className="font-heading text-xl font-bold tracking-tight">
-              Lumina Dental
-            </span>
-          </a>
-          <div className="hidden items-center gap-8 text-sm font-medium md:flex">
-            <a href="#services" className="text-brand-900/70 transition-colors hover:text-brand-600">Services</a>
-            <a href="#technology" className="text-brand-900/70 transition-colors hover:text-brand-600">Technology</a>
-            <a href="#team" className="text-brand-900/70 transition-colors hover:text-brand-600">Our Team</a>
-            <a href="#testimonials" className="text-brand-900/70 transition-colors hover:text-brand-600">Patients</a>
-            <a href="#contact" className="text-brand-900/70 transition-colors hover:text-brand-600">Contact</a>
-          </div>
-          <a
-            href="#book"
-            className="rounded-full bg-brand-900 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-brand-600 active:scale-95"
-          >
-            Book Consultation
-          </a>
-        </div>
-      </nav>
 
       {/* Hero */}
       <header className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32">
@@ -151,18 +127,19 @@ function Index() {
                 to complex rehabilitations, we combine master artistry with clinical precision.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href="#book"
+                <Link
+                  to="/contact"
+                  hash="book"
                   className="rounded-full bg-brand-600 px-8 py-4 font-bold text-white shadow-brand transition-all hover:bg-brand-900"
                 >
                   Schedule Visit
-                </a>
-                <a
-                  href="#gallery"
+                </Link>
+                <Link
+                  to="/specialties"
                   className="rounded-full border border-brand-900/10 px-8 py-4 font-bold transition-all hover:bg-brand-50"
                 >
-                  View Our Work
-                </a>
+                  View Specialties
+                </Link>
               </div>
               <dl className="mt-12 flex items-center gap-6 border-t border-brand-900/5 pt-8">
                 <div>
@@ -207,9 +184,9 @@ function Index() {
                 Specialized departments led by industry-leading consultants using the latest intra-oral technology.
               </p>
             </div>
-            <a href="#book" className="text-sm font-bold text-brand-600 hover:underline">
+            <Link to="/specialties" className="text-sm font-bold text-brand-600 hover:underline">
               Explore all 12 specialties &rarr;
-            </a>
+            </Link>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -405,106 +382,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Contact / Booking */}
-      <section id="contact" className="py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
-            <div>
-              <span className="mb-4 inline-block rounded-full bg-brand-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-600">
-                Visit the Practice
-              </span>
-              <h2 className="font-heading text-3xl font-bold tracking-tight lg:text-4xl">
-                Plan your visit to Lumina
-              </h2>
-              <p className="mt-4 text-brand-900/60">
-                Walk in for a consultation or call ahead to reserve a slot with the specialist of your choice.
-              </p>
-
-              <div className="mt-10 space-y-6 text-sm">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-brand-900/50">Address</p>
-                  <p className="mt-2 leading-relaxed">
-                    112 Sterling Grove, Level 4<br />
-                    Healthcare District, Bangalore 560001
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-brand-900/50">Reach Us</p>
-                  <p className="mt-2 leading-relaxed">
-                    <a href="tel:+918045529000" className="block font-bold text-brand-600 hover:underline">+91 (80) 4552 9000</a>
-                    <a href="mailto:hello@luminadental.com" className="block hover:underline">hello@luminadental.com</a>
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-brand-900/50">Clinical Hours</p>
-                  <dl className="mt-2 space-y-1">
-                    <div className="flex justify-between border-b border-brand-900/5 py-1.5"><dt>Mon — Fri</dt><dd>09:00 — 20:00</dd></div>
-                    <div className="flex justify-between border-b border-brand-900/5 py-1.5"><dt>Saturday</dt><dd>10:00 — 16:00</dd></div>
-                    <div className="flex justify-between py-1.5"><dt>Sunday</dt><dd className="italic text-brand-900/60">Emergency Only</dd></div>
-                  </dl>
-                </div>
-              </div>
-            </div>
-
-            <form
-              id="book"
-              onSubmit={(e) => e.preventDefault()}
-              className="rounded-[32px] border border-brand-900/5 bg-background p-8 shadow-soft md:p-10"
-            >
-              <h3 className="font-heading text-2xl font-bold tracking-tight">Book an Appointment</h3>
-              <p className="mt-2 text-sm text-brand-900/60">Our coordinator responds within 2 business hours.</p>
-
-              <div className="mt-8 grid gap-5 md:grid-cols-2">
-                <label className="space-y-2">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-brand-900/50">Full Name</span>
-                  <input type="text" required placeholder="Your name" className="w-full rounded-xl border-none bg-brand-50/60 p-3 text-sm outline-none ring-1 ring-brand-900/5 transition-shadow focus:ring-brand-600/40" />
-                </label>
-                <label className="space-y-2">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-brand-900/50">Contact Number</span>
-                  <input type="tel" required placeholder="+91" className="w-full rounded-xl border-none bg-brand-50/60 p-3 text-sm outline-none ring-1 ring-brand-900/5 transition-shadow focus:ring-brand-600/40" />
-                </label>
-                <label className="space-y-2 md:col-span-2">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-brand-900/50">Primary Concern</span>
-                  <select className="w-full appearance-none rounded-xl border-none bg-brand-50/60 p-3 text-sm outline-none ring-1 ring-brand-900/5 transition-shadow focus:ring-brand-600/40">
-                    <option>General Consultation</option>
-                    <option>Cosmetic Assessment</option>
-                    <option>Orthodontic Inquiry</option>
-                    <option>Implant Consultation</option>
-                    <option>Root Canal / Emergency</option>
-                  </select>
-                </label>
-                <label className="space-y-2 md:col-span-2">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-brand-900/50">Notes (Optional)</span>
-                  <textarea rows={4} placeholder="Tell us about your concern or any anxiety..." className="w-full resize-none rounded-xl border-none bg-brand-50/60 p-3 text-sm outline-none ring-1 ring-brand-900/5 transition-shadow focus:ring-brand-600/40" />
-                </label>
-                <button
-                  type="submit"
-                  className="mt-2 w-full rounded-full bg-brand-600 py-4 text-sm font-bold text-white shadow-brand transition-all hover:bg-brand-900 md:col-span-2"
-                >
-                  Submit Request
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-brand-900/5 py-12">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 px-6 md:flex-row">
-          <div className="flex items-center gap-2">
-            <div className="size-6 rounded-md bg-brand-900" />
-            <span className="font-heading font-bold tracking-tight">Lumina Dental</span>
-          </div>
-          <p className="text-xs text-brand-900/40">
-            © {new Date().getFullYear()} Lumina Dental Care Group. Services by licensed clinicians.
-          </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-xs font-bold uppercase tracking-widest hover:text-brand-600">Instagram</a>
-            <a href="#" className="text-xs font-bold uppercase tracking-widest hover:text-brand-600">LinkedIn</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
