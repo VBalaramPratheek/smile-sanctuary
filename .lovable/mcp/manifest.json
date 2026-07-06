@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "lumina-dental-mcp",
+      "version": "0.1.0",
+      "title": "Lumina Dental MCP"
+    },
+    "tools": [
+      {
+        "name": "list_specialties",
+        "title": "List dental specialties",
+        "description": "Return the list of dental specialties offered at Lumina Dental.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_clinic_info",
+        "title": "Get clinic information",
+        "description": "Return contact details, hours, and key stats for Lumina Dental.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "request_appointment",
+        "title": "Request an appointment",
+        "description": "Submit an appointment request for a patient. Returns a confirmation reference the clinic team will follow up on.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Patient full name."
+            },
+            "phone": {
+              "type": "string",
+              "minLength": 6,
+              "description": "Contact phone number including country code."
+            },
+            "concern": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Primary dental concern or specialty (e.g. implants, orthodontics, cleaning)."
+            },
+            "preferred_date": {
+              "description": "Preferred appointment date in ISO 8601 (YYYY-MM-DD) if known.",
+              "type": "string"
+            },
+            "notes": {
+              "description": "Any additional context for the clinician.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "phone",
+            "concern"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
