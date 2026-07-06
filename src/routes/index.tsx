@@ -1,25 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroClinic from "@/assets/hero-clinic.jpg";
-import patientCare from "@/assets/patient-care.jpg";
-import doctorPortrait from "@/assets/doctor-portrait.jpg";
-import smile1 from "@/assets/smile-1.jpg";
-import smile2 from "@/assets/smile-2.jpg";
-import smile3 from "@/assets/smile-3.jpg";
+import { useAppointmentModal } from "../components/AppointmentModal";
+import { MapPin, Phone, Mail, Clock, Zap, ShieldCheck, Calendar, Smile } from "lucide-react";
+import drKiranImg from "../assets/dr-kiran.jpeg";
+import drKiImg from "../assets/dr-ki.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Lumina Dental — Multi-Specialty Dental Hospital" },
+      { title: "Keerthi Dental Care — Multi-Specialty Dental Hospital" },
       {
         name: "description",
         content:
-          "Lumina Dental is a multi-specialty dental hospital offering implants, orthodontics, cosmetic dentistry, root canal and pediatric care with master clinicians.",
+          "Keerthi Dental Care is a multi-specialty dental hospital offering implants, orthodontics, cosmetic dentistry, root canal and pediatric care with master clinicians.",
       },
-      { property: "og:title", content: "Lumina Dental — Multi-Specialty Dental Hospital" },
+      { property: "og:title", content: "Keerthi Dental Care — Multi-Specialty Dental Hospital" },
       {
         property: "og:description",
-        content:
-          "Precision dentistry, redefined. Book your consultation with our specialist team.",
+        content: "Precision dentistry, redefined. Book your consultation with our specialist team.",
       },
     ],
   }),
@@ -28,360 +25,280 @@ export const Route = createFileRoute("/")({
 
 const services = [
   {
-    title: "Digital Smile Design",
-    desc: "Visualize your perfect smile before we begin. 3D scans and facial analysis for predictable, beautiful results.",
-    icon: "square",
-  },
-  {
     title: "Dental Implants",
-    desc: "Permanent, biocompatible titanium replacements — including complex full-arch and zygomatic restorations.",
-    icon: "circle",
+    desc: "State-of-the-art permanent teeth replacements with biocompatible titanium implants.",
   },
   {
     title: "Clear Orthodontics",
-    desc: "Discreet alignment using AI-planned, medical-grade thermoplastic aligners suitable for teens and adults.",
-    icon: "corner",
+    desc: "Discreet, comfortable orthodontic alignment with custom-made clear aligners.",
   },
   {
     title: "Root Canal Therapy",
-    desc: "Microscope-assisted endodontics that relieve pain while preserving the natural structure of your tooth.",
-    icon: "circle",
+    desc: "Microscope-assisted endodontics to save damaged teeth and eliminate dental pain.",
   },
   {
     title: "Cosmetic & Veneers",
-    desc: "Hand-crafted porcelain veneers and whitening protocols tailored to your facial aesthetics.",
-    icon: "square",
+    desc: "Handcrafted porcelain veneers and custom teeth whitening for stunning aesthetics.",
   },
   {
     title: "Pediatric Dentistry",
-    desc: "Gentle, calm care for our youngest patients — building lifelong positive dental habits.",
-    icon: "corner",
+    desc: "Gentle, stress-free dental care designed specifically to keep young smiles healthy.",
+  },
+  {
+    title: "Oral & Maxillofacial Surgery",
+    desc: "Advanced surgical care including wisdom tooth extractions and reconstructive surgery.",
+  },
+  {
+    title: "Periodontics & Gum Care",
+    desc: "Advanced therapy for gum disease, tissue grafting, and bone regeneration.",
+  },
+  {
+    title: "Prosthodontics",
+    desc: "Custom crowns, bridges, and full-mouth rehabilitations to restore bite and beauty.",
+  },
+  {
+    title: "Preventive Dentistry",
+    desc: "Regular cleanings, sealants, and comprehensive exams to protect long-term oral health.",
+  },
+  {
+    title: "Laser Dentistry",
+    desc: "Minimally invasive, virtually painless soft-tissue procedures using state-of-the-art dental lasers.",
+  },
+  {
+    title: "Sedation Dentistry",
+    desc: "Safe, controlled sedation options to ensure a relaxed and anxiety-free treatment experience.",
   },
 ];
-
-const testimonials = [
-  {
-    name: "Ananya R.",
-    role: "Implant Patient",
-    quote:
-      "From the first scan to the final crown, every step was explained. I forgot I was even at a dental clinic.",
-  },
-  {
-    name: "Marcus J.",
-    role: "Orthodontics",
-    quote:
-      "18 months with aligners and the difference is unreal. The team made the journey effortless.",
-  },
-  {
-    name: "Priya S.",
-    role: "Veneers",
-    quote:
-      "They studied my face, my smile lines — the veneers look like they were always mine.",
-  },
-];
-
-const faqs = [
-  {
-    q: "Do you accept dental insurance and EMI?",
-    a: "Yes. We work with all major insurance providers and offer interest-free EMI plans for treatments above ₹25,000.",
-  },
-  {
-    q: "Is your clinic sterilization certified?",
-    a: "Our hospital follows ISO-certified sterilization protocols with autoclave-tracked instruments for every patient.",
-  },
-  {
-    q: "How long does a dental implant procedure take?",
-    a: "Implant placement typically takes 45–60 minutes per tooth. Full restoration is staged over 3–6 months for optimal integration.",
-  },
-  {
-    q: "Do you treat dental emergencies on weekends?",
-    a: "Yes. Same-day emergency appointments are available 7 days a week — call our 24/7 emergency line.",
-  },
-];
-
-function IconForService({ kind }: { kind: string }) {
-  if (kind === "square")
-    return <div className="size-6 rounded-sm bg-brand-600/20 border-2 border-brand-600" />;
-  if (kind === "circle")
-    return <div className="size-6 rounded-full bg-brand-600/20 border-2 border-brand-600" />;
-  return <div className="w-6 h-6 border-b-2 border-r-2 border-brand-600" />;
-}
 
 function Index() {
+  const { open } = useAppointmentModal();
+
   return (
-    <div className="min-h-screen bg-background font-body text-brand-900">
+    <div className="min-h-screen relative font-body text-brand-900 bg-background">
+      <div className="relative">
+        {/* Hero */}
+        <header
+          className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32 bg-cover bg-center bg-no-repeat border-b border-white/10"
+          style={{ backgroundImage: `url(${drKiImg})` }}
+        >
+          <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[1px] pointer-events-none" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6">
+            <div className="mx-auto max-w-3xl text-center">
+              <div>
+                <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Advanced Dental Care
+                </span>
 
-      {/* Hero */}
-      <header className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="relative z-10">
-              <span className="mb-4 inline-block rounded-full bg-brand-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-600">
-                Advanced Multi-Specialty Care
-              </span>
-              <h1 className="font-heading text-5xl font-bold leading-[1.05] tracking-tight lg:text-7xl">
-                Precision Dentistry, <span className="text-brand-600">Redefined.</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-brand-900/60">
-                Experience world-class dental care at Lumina. From aesthetic transformations
-                to complex rehabilitations, we combine master artistry with clinical precision.
-              </p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link
-                  to="/contact"
-                  hash="book"
-                  className="rounded-full bg-brand-600 px-8 py-4 font-bold text-white shadow-brand transition-all hover:bg-brand-900"
-                >
-                  Schedule Visit
-                </Link>
-                <Link
-                  to="/specialties"
-                  className="rounded-full border border-brand-900/10 px-8 py-4 font-bold transition-all hover:bg-brand-50"
-                >
-                  View Specialties
-                </Link>
+                <h1 className="font-heading text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl text-white">
+                  Keerthi Dental Care
+                </h1>
+
+                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-200">
+                  Experience world-class dental care at Keerthi Dental Care. From aesthetic
+                  transformations to complex rehabilitations, we combine master artistry with
+                  clinical precision.
+                </p>
+
+                {/* Translucent visual badges */}
+                <div className="mt-8 flex flex-wrap justify-center gap-3">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-xs font-semibold text-white/90 backdrop-blur-sm">
+                    <ShieldCheck className="size-3.5 text-sky-400" />
+                    Precision Implants
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-xs font-semibold text-white/90 backdrop-blur-sm">
+                    <Zap className="size-3.5 text-sky-400" />
+                    Painless Laser Care
+                  </span>
+                </div>
+
+                <div className="mt-10 flex flex-wrap justify-center gap-4">
+                  <button
+                    onClick={open}
+                    className="rounded-full bg-brand-600 px-8 py-4 font-bold text-white shadow-brand transition-all hover:bg-brand-900 cursor-pointer active:scale-95"
+                  >
+                    Book Appointment
+                  </button>
+                  <Link
+                    to="/"
+                    hash="services"
+                    className="rounded-full border border-white/20 bg-white/5 px-8 py-4 font-bold text-white transition-all hover:bg-white/10 backdrop-blur-sm"
+                  >
+                    View Specialties
+                  </Link>
+                </div>
+
+                <dl className="mt-12 flex items-center justify-center gap-8 border-t border-white/10 pt-8">
+                  <div className="text-center">
+                    <dd className="text-3xl font-extrabold tracking-tight text-white">13+ Years</dd>
+                    <dt className="text-xs font-bold uppercase tracking-widest text-slate-300 mt-1">
+                      Of Experience
+                    </dt>
+                  </div>
+                  <div className="h-8 w-px bg-white/15" />
+                  <div className="text-center">
+                    <dd className="text-3xl font-extrabold tracking-tight text-white">2k+</dd>
+                    <dt className="text-xs font-bold uppercase tracking-widest text-slate-300 mt-1">
+                      Smiles Crafted
+                    </dt>
+                  </div>
+                </dl>
               </div>
-              <dl className="mt-12 flex items-center gap-6 border-t border-brand-900/5 pt-8">
-                <div>
-                  <dt className="text-xs font-medium uppercase tracking-widest text-brand-900/50">Smiles Crafted</dt>
-                  <dd className="text-2xl font-bold tracking-tight">15k+</dd>
-                </div>
-                <div className="h-8 w-px bg-brand-900/10" />
-                <div>
-                  <dt className="text-xs font-medium uppercase tracking-widest text-brand-900/50">Patient Rating</dt>
-                  <dd className="text-2xl font-bold tracking-tight">4.9/5</dd>
-                </div>
-                <div className="h-8 w-px bg-brand-900/10" />
-                <div>
-                  <dt className="text-xs font-medium uppercase tracking-widest text-brand-900/50">Specialists</dt>
-                  <dd className="text-2xl font-bold tracking-tight">12</dd>
-                </div>
-              </dl>
-            </div>
-            <div className="relative">
-              <div className="absolute -inset-4 -z-10 rounded-[40px] bg-brand-50/60 blur-3xl" />
-              <img
-                src={heroClinic}
-                alt="Bright, modern Lumina Dental clinic interior"
-                width={1200}
-                height={1200}
-                className="aspect-square w-full rounded-[40px] object-cover outline-1 -outline-offset-1 outline-black/5"
-              />
             </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* Services */}
-      <section id="services" className="bg-brand-50/50 py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 flex flex-col items-end justify-between gap-4 md:flex-row md:items-center">
-            <div className="max-w-xl">
-              <h2 className="font-heading text-3xl font-bold tracking-tight lg:text-4xl">
-                Full-Spectrum Oral Health
-              </h2>
-              <p className="mt-4 text-brand-900/60">
-                Specialized departments led by industry-leading consultants using the latest intra-oral technology.
-              </p>
-            </div>
-            <Link to="/specialties" className="text-sm font-bold text-brand-600 hover:underline">
-              Explore all 12 specialties &rarr;
-            </Link>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
-              <article
-                key={s.title}
-                className="group relative overflow-hidden rounded-3xl bg-background p-8 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-900/5"
-              >
-                <div className="mb-6 grid size-12 place-items-center rounded-2xl bg-brand-50">
-                  <IconForService kind={s.icon} />
-                </div>
-                <h3 className="mb-3 font-heading text-xl font-bold">{s.title}</h3>
-                <p className="text-sm leading-relaxed text-brand-900/60">{s.desc}</p>
-                <div className="mt-8 h-1 w-full origin-left scale-x-0 bg-brand-600 transition-transform group-hover:scale-x-100" />
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Technology / Trust */}
-      <section id="technology" className="py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="relative flex flex-col items-center gap-16 overflow-hidden rounded-[48px] bg-brand-900 p-8 text-white lg:flex-row lg:p-16">
-            <div className="relative z-10 lg:w-1/2">
-              <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-50">
-                Technology & Care
-              </span>
-              <h2 className="font-heading text-4xl font-bold leading-tight">
-                Gentle Care for Every Generation
-              </h2>
-              <p className="mt-6 text-lg text-brand-50/70">
-                Our multidisciplinary team of clinicians ensures that from pediatric preventative
-                care to geriatric prosthetics, your family is in expert hands.
-              </p>
-              <ul className="mt-8 space-y-4">
-                {[
-                  "Pain-free laser treatment options",
-                  "Zero-interest financing available",
-                  "Same-day emergency appointments",
-                  "ISO-certified sterilization protocols",
-                ].map((point) => (
-                  <li key={point} className="flex items-center gap-3">
-                    <div className="grid size-5 place-items-center rounded-full bg-brand-600 text-[10px] font-bold">
-                      ✓
-                    </div>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="w-full lg:w-1/2">
-              <img
-                src={patientCare}
-                alt="Dentist talking with a relaxed patient"
-                width={1000}
-                height={800}
-                loading="lazy"
-                className="aspect-[4/3] w-full rounded-3xl object-cover outline-1 -outline-offset-1 outline-white/10"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team / Lead Doctor */}
-      <section id="team" className="py-24">
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center">
-          <img
-            src={doctorPortrait}
-            alt="Dr. Aravind Rao, Chief Clinician at Lumina Dental"
-            width={800}
-            height={1000}
-            loading="lazy"
-            className="aspect-[4/5] w-full rounded-[32px] object-cover outline-1 -outline-offset-1 outline-black/5"
-          />
-          <div>
-            <span className="mb-4 inline-block rounded-full bg-brand-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-600">
+        {/* Team / Lead Doctor (Chief Clinician) */}
+        <section id="team" className="py-24">
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <span className="mb-6 inline-block rounded-full bg-brand-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-600">
               Chief Clinician
             </span>
+            <img
+              src={drKiranImg}
+              alt="Dr. V. Kiran Kumar"
+              className="mx-auto mb-6 h-64 w-64 rounded-2xl object-cover shadow-md border-4 border-brand-50"
+            />
             <h2 className="font-heading text-4xl font-bold leading-tight lg:text-5xl">
-              Dr. Aravind Rao
+              Dr. V. Kiran Kumar
             </h2>
-            <p className="mt-2 font-medium text-brand-900/60">
-              MDS, Implantology · Fellowship in Aesthetic Dentistry
-            </p>
-            <p className="mt-6 text-lg leading-relaxed text-brand-900/70">
-              With over two decades of clinical experience across India and the UK, Dr. Rao leads
-              Lumina with a philosophy of conservative intervention — preserving as much natural
-              tooth structure as possible through advanced digital planning.
-            </p>
-            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-brand-900/5 pt-8">
-              <div>
-                <p className="text-2xl font-bold tracking-tight">22+</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-widest text-brand-900/50">Years Active</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold tracking-tight">400+</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-widest text-brand-900/50">Implants / Year</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold tracking-tight">12</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-widest text-brand-900/50">Specialists Led</p>
+            <p className="mt-4 text-xl font-medium text-brand-900/60">Dental Surgeon, BDS</p>
+          </div>
+        </section>
+
+        {/* Services (Specialties) */}
+        <section id="services" className="py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-16 flex flex-col items-end justify-between gap-4 md:flex-row md:items-center">
+              <div className="max-w-xl">
+                <h2 className="font-heading text-3xl font-bold tracking-tight lg:text-4xl">
+                  Full-Spectrum Oral Health
+                </h2>
+                <p className="mt-4 text-brand-900/60">
+                  Specialized departments led by industry-leading consultants using the latest
+                  intra-oral technology.
+                </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Smile Gallery */}
-      <section id="gallery" className="bg-brand-50/50 py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 flex flex-col items-end justify-between gap-4 md:flex-row md:items-end">
-            <div className="max-w-xl">
+            <div className="mx-auto max-w-4xl flex flex-col gap-6">
+              {services.map((s, index) => (
+                <article
+                  key={s.title}
+                  className="group relative overflow-hidden rounded-2xl bg-white p-6 md:p-8 transition-all duration-300 hover:translate-x-2 hover:shadow-soft border border-brand-900/5 flex flex-col gap-2"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <h3 className="font-heading text-xl font-bold text-brand-900 group-hover:text-brand-600 transition-colors duration-300">
+                    {s.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-brand-900/60 leading-relaxed font-body">
+                    {s.desc}
+                  </p>
+                  {/* Subtle decorative hover glow */}
+                  <div className="absolute -bottom-2 -right-2 size-24 rounded-full bg-brand-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none" />
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Us */}
+        <section id="contact" className="py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mx-auto max-w-3xl text-center mb-16">
+              <span className="mb-4 inline-block rounded-full bg-brand-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-600">
+                Get in Touch
+              </span>
               <h2 className="font-heading text-3xl font-bold tracking-tight lg:text-4xl">
-                Results that speak for themselves
+                Contact Us
               </h2>
               <p className="mt-4 text-brand-900/60">
-                A selection of restorative and cosmetic cases from our clinical archives.
+                Find our clinic location, contact numbers, and operational hours below.
               </p>
             </div>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { img: smile1, label: "Ceramic Veneers", id: "#4021" },
-              { img: smile2, label: "Invisalign Treatment", id: "#3892" },
-              { img: smile3, label: "Full-Mouth Rehab", id: "#4110" },
-            ].map((g) => (
-              <figure key={g.id} className="space-y-4">
-                <img
-                  src={g.img}
-                  alt={g.label}
-                  width={800}
-                  height={800}
+
+            <div className="grid gap-12 lg:grid-cols-2 lg:items-stretch">
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div className="flex gap-4 items-start p-6 rounded-3xl border border-brand-900/5 bg-white/80 backdrop-blur-sm shadow-soft">
+                  <div className="flex-shrink-0 grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+                    <MapPin className="size-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-brand-900">Visit Us</h4>
+                    <p className="mt-1 text-sm text-brand-900/60 leading-relaxed">
+                      D.No 10/84, Balaramunipet,
+                      <br />
+                      Challarastha Centre,
+                      <br />
+                      Machilipatnam, AP-521001
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start p-6 rounded-3xl border border-brand-900/5 bg-white/80 backdrop-blur-sm shadow-soft">
+                  <div className="flex-shrink-0 grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+                    <Phone className="size-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-brand-900">Call Us</h4>
+                    <p className="mt-1 text-sm text-brand-900/60 leading-relaxed">
+                      <a
+                        href="tel:+919603465372"
+                        className="block font-bold text-brand-600 hover:underline"
+                      >
+                        +91 9603465372
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start p-6 rounded-3xl border border-brand-900/5 bg-white/80 backdrop-blur-sm shadow-soft">
+                  <div className="flex-shrink-0 grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+                    <Mail className="size-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-brand-900">Email Us</h4>
+                    <p className="mt-1 text-sm text-brand-900/60 leading-relaxed">
+                      <a
+                        href="mailto:Keerthidentalcare999@gmail.com"
+                        className="block hover:underline"
+                      >
+                        Keerthidentalcare999@gmail.com
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start p-6 rounded-3xl border border-brand-900/5 bg-white/80 backdrop-blur-sm shadow-soft">
+                  <div className="flex-shrink-0 grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+                    <Clock className="size-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-brand-900">Working Hours</h4>
+                    <p className="mt-1 text-sm text-brand-900/60 leading-relaxed">
+                      Mon - Sat:- 9:30 am - 8:30 pm
+                      <br />
+                      Sunday - Holiday
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-full h-full min-h-[350px] rounded-[32px] overflow-hidden border border-brand-900/5 bg-background shadow-soft">
+                <iframe
+                  src="https://maps.google.com/maps?q=Keerthi%20Dental%20Care%20Challarastha%20Machilipatnam&t=k&z=16&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  className="w-full min-h-[350px] border-none"
+                  allowFullScreen
                   loading="lazy"
-                  className="aspect-square w-full rounded-3xl object-cover outline-1 -outline-offset-1 outline-black/5"
+                  title="Keerthi Dental Care Location"
                 />
-                <figcaption className="flex justify-between text-xs font-medium">
-                  <span className="text-brand-900/50">Case {g.id}</span>
-                  <span>{g.label}</span>
-                </figcaption>
-              </figure>
-            ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section id="testimonials" className="py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="mb-16 max-w-2xl font-heading text-3xl font-bold tracking-tight lg:text-4xl">
-            Trusted by thousands of patients across the city.
-          </h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <blockquote
-                key={t.name}
-                className="rounded-3xl border border-brand-900/5 bg-background p-8 shadow-soft"
-              >
-                <p className="text-lg leading-relaxed text-brand-900/80">“{t.quote}”</p>
-                <footer className="mt-6 border-t border-brand-900/5 pt-4">
-                  <p className="font-bold">{t.name}</p>
-                  <p className="text-xs font-medium uppercase tracking-widest text-brand-900/50">{t.role}</p>
-                </footer>
-              </blockquote>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="bg-brand-50/50 py-24">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="mb-12 text-center font-heading text-3xl font-bold tracking-tight lg:text-4xl">
-            Frequently asked questions
-          </h2>
-          <div className="space-y-4">
-            {faqs.map((f) => (
-              <details
-                key={f.q}
-                className="group rounded-2xl border border-brand-900/5 bg-background p-6 transition-all hover:shadow-soft"
-              >
-                <summary className="flex cursor-pointer items-center justify-between font-bold">
-                  <span>{f.q}</span>
-                  <span className="grid size-6 place-items-center rounded-full bg-brand-50 text-brand-600 transition-transform group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-4 leading-relaxed text-brand-900/60">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
+        </section>
+      </div>
     </div>
   );
 }

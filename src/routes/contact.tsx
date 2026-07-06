@@ -1,19 +1,21 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { useAppointmentModal } from "../components/AppointmentModal";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Lumina Dental" },
+      { title: "Contact — Keerthi Dental Care" },
       {
         name: "description",
         content:
-          "Book your consultation at Lumina Dental. Call, email or fill out our appointment form to visit our Bangalore clinic.",
+          "Book your consultation at Keerthi Dental Care. Call, email or fill out our appointment form to visit our Machilipatnam clinic.",
       },
-      { property: "og:title", content: "Contact — Lumina Dental" },
+      { property: "og:title", content: "Contact — Keerthi Dental Care" },
       {
         property: "og:description",
         content:
-          "Book your consultation at Lumina Dental. Call, email or fill out our appointment form to visit our Bangalore clinic.",
+          "Book your consultation at Keerthi Dental Care. Call, email or fill out our appointment form to visit our Machilipatnam clinic.",
       },
     ],
   }),
@@ -21,6 +23,8 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const { open } = useAppointmentModal();
+
   return (
     <div className="bg-background">
       <section className="bg-brand-50/50 py-24">
@@ -33,7 +37,8 @@ function ContactPage() {
               Plan your visit.
             </h1>
             <p className="mt-4 text-lg text-brand-900/60">
-              Walk in for a consultation or call ahead to reserve a slot with the specialist of your choice.
+              Walk in for a consultation or call ahead to reserve a slot with the specialist of your
+              choice.
             </p>
           </div>
         </div>
@@ -47,74 +52,114 @@ function ContactPage() {
                 Visit the Practice
               </h2>
               <p className="mt-4 text-brand-900/60">
-                Our coordinator responds within 2 business hours.
+                Find our clinic location on the map or contact us directly.
               </p>
 
-              <div className="mt-10 space-y-6 text-sm">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-brand-900/50">Address</p>
-                  <p className="mt-2 leading-relaxed">
-                    112 Sterling Grove, Level 4<br />
-                    Healthcare District, Bangalore 560001
-                  </p>
+              <div className="mt-10 grid gap-8 sm:grid-cols-2">
+                <div className="flex gap-4 items-start">
+                  <div className="flex-shrink-0 grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+                    <MapPin className="size-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-brand-900">Visit Us</h4>
+                    <p className="mt-1 text-sm text-brand-900/60 leading-relaxed">
+                      D.No 10/84, Balaramunipet,
+                      <br />
+                      Challarastha Centre,
+                      <br />
+                      Machilipatnam, AP-521001
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-brand-900/50">Reach Us</p>
-                  <p className="mt-2 leading-relaxed">
-                    <a href="tel:+918045529000" className="block font-bold text-brand-600 hover:underline">+91 (80) 4552 9000</a>
-                    <a href="mailto:hello@luminadental.com" className="block hover:underline">hello@luminadental.com</a>
-                  </p>
+
+                <div className="flex gap-4 items-start">
+                  <div className="flex-shrink-0 grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+                    <Phone className="size-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-brand-900">Call Us</h4>
+                    <p className="mt-1 text-sm text-brand-900/60 leading-relaxed">
+                      <a
+                        href="tel:+919603465372"
+                        className="block font-bold text-brand-600 hover:underline"
+                      >
+                        +91 9603465372
+                      </a>
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-brand-900/50">Clinical Hours</p>
-                  <dl className="mt-2 space-y-1">
-                    <div className="flex justify-between border-b border-brand-900/5 py-1.5"><dt>Mon — Fri</dt><dd>09:00 — 20:00</dd></div>
-                    <div className="flex justify-between border-b border-brand-900/5 py-1.5"><dt>Saturday</dt><dd>10:00 — 16:00</dd></div>
-                    <div className="flex justify-between py-1.5"><dt>Sunday</dt><dd className="italic text-brand-900/60">Emergency Only</dd></div>
-                  </dl>
+
+                <div className="flex gap-4 items-start">
+                  <div className="flex-shrink-0 grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+                    <Mail className="size-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-brand-900">Email Us</h4>
+                    <p className="mt-1 text-sm text-brand-900/60 leading-relaxed">
+                      <a
+                        href="mailto:Keerthidentalcare999@gmail.com"
+                        className="block hover:underline"
+                      >
+                        Keerthidentalcare999@gmail.com
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="flex-shrink-0 grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+                    <Clock className="size-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-brand-900">Working Hours</h4>
+                    <p className="mt-1 text-sm text-brand-900/60 leading-relaxed">
+                      Mon - Sat:- 9:30 am - 8:30 pm
+                      <br />
+                      Sunday - Holiday
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <form
-              id="book"
-              onSubmit={(e) => e.preventDefault()}
-              className="rounded-[32px] border border-brand-900/5 bg-background p-8 shadow-soft md:p-10"
-            >
-              <h3 className="font-heading text-2xl font-bold tracking-tight">Book an Appointment</h3>
-              <p className="mt-2 text-sm text-brand-900/60">Our coordinator responds within 2 business hours.</p>
+            <div className="w-full h-full min-h-[450px] rounded-[32px] overflow-hidden border border-brand-900/5 bg-background shadow-soft">
+              <iframe
+                src="https://maps.google.com/maps?q=Keerthi%20Dental%20Care%20Challarastha%20Machilipatnam&t=k&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                className="w-full min-h-[450px] border-none"
+                allowFullScreen
+                loading="lazy"
+                title="Keerthi Dental Care Location"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="mt-8 grid gap-5 md:grid-cols-2">
-                <label className="space-y-2">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-brand-900/50">Full Name</span>
-                  <input type="text" required placeholder="Your name" className="w-full rounded-xl border-none bg-brand-50/60 p-3 text-sm outline-none ring-1 ring-brand-900/5 transition-shadow focus:ring-brand-600/40" />
-                </label>
-                <label className="space-y-2">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-brand-900/50">Contact Number</span>
-                  <input type="tel" required placeholder="+91" className="w-full rounded-xl border-none bg-brand-50/60 p-3 text-sm outline-none ring-1 ring-brand-900/5 transition-shadow focus:ring-brand-600/40" />
-                </label>
-                <label className="space-y-2 md:col-span-2">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-brand-900/50">Primary Concern</span>
-                  <select className="w-full appearance-none rounded-xl border-none bg-brand-50/60 p-3 text-sm outline-none ring-1 ring-brand-900/5 transition-shadow focus:ring-brand-600/40">
-                    <option>General Consultation</option>
-                    <option>Cosmetic Assessment</option>
-                    <option>Orthodontic Inquiry</option>
-                    <option>Implant Consultation</option>
-                    <option>Root Canal / Emergency</option>
-                  </select>
-                </label>
-                <label className="space-y-2 md:col-span-2">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-brand-900/50">Notes (Optional)</span>
-                  <textarea rows={4} placeholder="Tell us about your concern or any anxiety..." className="w-full resize-none rounded-xl border-none bg-brand-50/60 p-3 text-sm outline-none ring-1 ring-brand-900/5 transition-shadow focus:ring-brand-600/40" />
-                </label>
-                <button
-                  type="submit"
-                  className="mt-2 w-full rounded-full bg-brand-600 py-4 text-sm font-bold text-white shadow-brand transition-all hover:bg-brand-900 md:col-span-2"
-                >
-                  Submit Request
-                </button>
-              </div>
-            </form>
+      {/* Call to Action Section */}
+      <section className="py-16 border-t border-brand-900/5 bg-brand-50/30">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-brand-900">
+            Need a consultation?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-brand-900/60 leading-relaxed">
+            Connect with our dental consultants for expert advice and treatment options tailored to
+            you.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <button
+              onClick={open}
+              className="rounded-full bg-brand-600 px-8 py-4 font-bold text-white shadow-brand transition-all hover:bg-brand-900 active:scale-95 cursor-pointer"
+            >
+              Book Appointment
+            </button>
+            <a
+              href="tel:+919603465372"
+              className="inline-flex items-center gap-2 rounded-full border border-brand-900/10 bg-white px-8 py-4 font-bold text-brand-900 hover:bg-brand-50 transition-all"
+            >
+              <span>Call: +91 9603465372</span>
+            </a>
           </div>
         </div>
       </section>

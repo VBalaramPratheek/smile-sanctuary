@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { AppointmentModalProvider } from "../components/AppointmentModal";
 
 function NotFoundComponent() {
   return (
@@ -78,11 +79,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lumina Dental" },
-      { name: "description", content: "Multi-specialty dental hospital in Bangalore — implants, orthodontics, smile design and more." },
+      { title: "Keerthi Dental Care" },
+      {
+        name: "description",
+        content:
+          "Multi-specialty dental hospital in Machilipatnam — implants, orthodontics, smile design and more.",
+      },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lumina Dental" },
-      { property: "og:description", content: "Multi-specialty dental hospital in Bangalore — implants, orthodontics, smile design and more." },
+      { property: "og:title", content: "Keerthi Dental Care" },
+      {
+        property: "og:description",
+        content:
+          "Multi-specialty dental hospital in Machilipatnam — implants, orthodontics, smile design and more.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -122,13 +131,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-background font-body text-brand-900">
-        <Header />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <AppointmentModalProvider>
+        <div className="flex min-h-screen flex-col bg-background font-body text-brand-900">
+          <Header />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+      </AppointmentModalProvider>
     </QueryClientProvider>
   );
 }
