@@ -81,7 +81,7 @@ function Index() {
           className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32 bg-cover bg-center bg-no-repeat border-b border-white/10"
           style={{ backgroundImage: `url(${drKiImg})` }}
         >
-          <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[1px] pointer-events-none" />
+          <div className="absolute inset-0 bg-slate-950/30 pointer-events-none" />
           <div className="relative z-10 mx-auto max-w-7xl px-6">
             <div className="mx-auto max-w-3xl text-center">
               <div>
@@ -103,11 +103,11 @@ function Index() {
                 {/* Translucent visual badges */}
                 <div className="mt-8 flex flex-wrap justify-center gap-3">
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-xs font-semibold text-white/90 backdrop-blur-sm">
-                    <ShieldCheck className="size-3.5 text-sky-400" />
+                    <ShieldCheck className="size-3.5 text-orange-400" />
                     Precision Implants
                   </span>
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-xs font-semibold text-white/90 backdrop-blur-sm">
-                    <Zap className="size-3.5 text-sky-400" />
+                    <Zap className="size-3.5 text-orange-400" />
                     Painless Laser Care
                   </span>
                 </div>
@@ -137,7 +137,7 @@ function Index() {
                   </div>
                   <div className="h-8 w-px bg-white/15" />
                   <div className="text-center">
-                    <dd className="text-3xl font-extrabold tracking-tight text-white">2k+</dd>
+                    <dd className="text-3xl font-extrabold tracking-tight text-white">2K+</dd>
                     <dt className="text-xs font-bold uppercase tracking-widest text-slate-300 mt-1">
                       Smiles Crafted
                     </dt>
@@ -149,46 +149,86 @@ function Index() {
         </header>
 
         {/* Team / Lead Doctor (Chief Clinician) */}
-        <section id="team" className="py-24">
-          <div className="mx-auto max-w-3xl px-6 text-center">
-            <span className="mb-6 inline-block rounded-full bg-brand-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-600">
-              Chief Clinician
-            </span>
-            <img
-              src={drKiranImg}
-              alt="Dr. V. Kiran Kumar"
-              className="mx-auto mb-6 h-64 w-64 rounded-2xl object-cover shadow-md border-4 border-brand-50"
-            />
-            <h2 className="font-heading text-4xl font-bold leading-tight lg:text-5xl">
-              Dr. V. Kiran Kumar
-            </h2>
-            <p className="mt-4 text-xl font-medium text-brand-900/60">Dental Surgeon, BDS</p>
+        <section id="team" className="py-24 bg-white/50 border-y border-brand-900/5">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="grid gap-12 md:grid-cols-12 md:items-center">
+              {/* Doctor Image */}
+              <div className="md:col-span-5 flex justify-center">
+                <div className="relative group">
+                  <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-brand-500 to-brand-600 opacity-30 blur transition-all duration-300 group-hover:opacity-40" />
+                  <img
+                    src={drKiranImg}
+                    alt="Dr. V. Kiran Kumar"
+                    className="relative h-80 w-80 rounded-2xl object-cover shadow-lg border-4 border-white transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute -bottom-4 -right-4 rounded-2xl bg-brand-600 px-4 py-2 font-heading font-bold text-white shadow-md text-sm">
+                    13+ Years Exp.
+                  </div>
+                </div>
+              </div>
+
+              {/* Doctor Profile Info */}
+              <div className="md:col-span-7 space-y-6">
+                <div>
+                  <span className="mb-3 inline-block rounded-full bg-brand-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-600">
+                    Chief Clinician
+                  </span>
+                  <h2 className="font-heading text-4xl font-bold tracking-tight text-brand-900 lg:text-5xl">
+                    Dr. V. Kiran Kumar
+                  </h2>
+                  <p className="mt-2 text-lg font-medium text-brand-600">
+                    Dental Surgeon, BDS
+                  </p>
+                </div>
+
+                <p className="text-brand-900/70 leading-relaxed font-body text-base">
+                  Dr. Kiran Kumar is a highly dedicated and experienced dental surgeon committed to providing comprehensive, patient-centered care. With a focus on modern aesthetic transformations, dental implants, and laser procedures, he ensures every patient leaves with a confident, healthy smile.
+                </p>
+
+                <div className="grid gap-4 sm:grid-cols-2 pt-2 border-t border-brand-900/5 text-sm">
+                  <div className="flex gap-2.5 items-center">
+                    <span className="grid size-6 place-items-center rounded-lg bg-brand-50 text-brand-600 font-bold text-xs">✓</span>
+                    <span className="text-brand-900/80 font-medium">Advanced Implants</span>
+                  </div>
+                  <div className="flex gap-2.5 items-center">
+                    <span className="grid size-6 place-items-center rounded-lg bg-brand-50 text-brand-600 font-bold text-xs">✓</span>
+                    <span className="text-brand-900/80 font-medium">Laser Procedures</span>
+                  </div>
+                  <div className="flex gap-2.5 items-center">
+                    <span className="grid size-6 place-items-center rounded-lg bg-brand-50 text-brand-600 font-bold text-xs">✓</span>
+                    <span className="text-brand-900/80 font-medium">Aesthetic Smile Design</span>
+                  </div>
+                  <div className="flex gap-2.5 items-center">
+                    <span className="grid size-6 place-items-center rounded-lg bg-brand-50 text-brand-600 font-bold text-xs">✓</span>
+                    <span className="text-brand-900/80 font-medium">Gentle Patient Care</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Services (Specialties) */}
-        <section id="services" className="py-24">
+        <section id="services" className="py-24 bg-brand-50/10">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="mb-16 flex flex-col items-end justify-between gap-4 md:flex-row md:items-center">
-              <div className="max-w-xl">
-                <h2 className="font-heading text-3xl font-bold tracking-tight lg:text-4xl">
-                  Full-Spectrum Oral Health
-                </h2>
-                <p className="mt-4 text-brand-900/60">
-                  Specialized departments led by industry-leading consultants using the latest
-                  intra-oral technology.
-                </p>
-              </div>
+            <div className="mx-auto max-w-3xl text-center mb-16">
+              <h2 className="font-heading text-3xl font-bold tracking-tight lg:text-4xl text-brand-900">
+                Full-Spectrum Oral Health
+              </h2>
+              <p className="mt-4 text-lg text-brand-900/60 leading-relaxed">
+                Specialized departments led by industry-leading consultants using the latest
+                intra-oral technology.
+              </p>
             </div>
 
-            <div className="mx-auto max-w-4xl flex flex-col gap-6">
+            <div className="mx-auto max-w-6xl grid gap-6 sm:grid-cols-2">
               {services.map((s, index) => (
                 <article
                   key={s.title}
-                  className="group relative overflow-hidden rounded-2xl bg-white p-6 md:p-8 transition-all duration-300 hover:translate-x-2 hover:shadow-soft border border-brand-900/5 flex flex-col gap-2"
+                  className="group relative overflow-hidden rounded-2xl bg-white p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft border border-brand-900/5 flex flex-col gap-2"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <h3 className="font-heading text-xl font-bold text-brand-900 group-hover:text-brand-600 transition-colors duration-300">
+                  <h3 className="font-heading text-xl font-bold text-brand-600 group-hover:text-brand-900 transition-colors duration-300">
                     {s.title}
                   </h3>
                   <p className="text-sm md:text-base text-brand-900/60 leading-relaxed font-body">
@@ -281,6 +321,26 @@ function Index() {
                       Sunday - Holiday
                     </p>
                   </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between sm:col-span-2 p-6 rounded-3xl border border-brand-900/5 bg-brand-50/40 shadow-soft">
+                  <div className="flex gap-4 items-start">
+                    <div className="flex-shrink-0 grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-600 shadow-sm">
+                      <Calendar className="size-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-heading font-bold text-brand-900">Appointment Booking</h4>
+                      <p className="mt-1 text-sm text-brand-900/60 leading-relaxed">
+                        Schedule your consultation online in under a minute.
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={open}
+                    className="w-full sm:w-auto rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-brand-900 active:scale-95 cursor-pointer shadow-brand flex-shrink-0"
+                  >
+                    Book Appointment
+                  </button>
                 </div>
               </div>
 

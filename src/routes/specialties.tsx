@@ -77,7 +77,7 @@ function SpecialtiesPage() {
       {/* Hero Banner without Background Image */}
       <section className="bg-brand-50/50 py-24 border-b border-brand-900/5">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-2xl">
+          <div className="mx-auto max-w-3xl text-center">
             <span className="mb-4 inline-block rounded-full bg-brand-100 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-600">
               Clinical Departments
             </span>
@@ -92,17 +92,17 @@ function SpecialtiesPage() {
         </div>
       </section>
 
-      {/* Specialties List Section (One by One) */}
+      {/* Specialties List Section (Two Columns) */}
       <section className="py-24 bg-gradient-to-b from-brand-50/20 to-background">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="flex flex-col gap-6">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-6 sm:grid-cols-2">
             {services.map((s, index) => (
               <article
                 key={s.title}
-                className="group relative overflow-hidden rounded-2xl bg-white p-6 md:p-8 transition-all duration-300 hover:translate-x-2 hover:shadow-soft border border-brand-900/5 flex flex-col gap-2"
+                className="group relative overflow-hidden rounded-2xl bg-white p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft border border-brand-900/5 flex flex-col gap-2"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <h2 className="font-heading text-xl font-bold text-brand-900 group-hover:text-brand-600 transition-colors duration-300">
+                <h2 className="font-heading text-xl font-bold text-brand-600 group-hover:text-brand-900 transition-colors duration-300">
                   {s.title}
                 </h2>
                 <p className="text-sm md:text-base text-brand-900/60 leading-relaxed font-body">

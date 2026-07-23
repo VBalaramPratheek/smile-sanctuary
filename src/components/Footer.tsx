@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Calendar } from "lucide-react";
+import { useAppointmentModal } from "./AppointmentModal";
 
 export default function Footer() {
+  const { open } = useAppointmentModal();
   return (
     <footer className="bg-[#0f172a] text-slate-300 py-16 border-t border-white/5">
       <div className="mx-auto max-w-7xl px-6">
@@ -62,6 +64,14 @@ export default function Footer() {
                   Contact Us
                 </Link>
               </li>
+              <li>
+                <button
+                  onClick={open}
+                  className="text-sm text-slate-400 hover:text-white transition-colors text-left cursor-pointer"
+                >
+                  Book Appointment
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -70,7 +80,7 @@ export default function Footer() {
             <h4 className="font-heading font-bold text-white text-base mb-4 uppercase tracking-wider">
               Our Treatments
             </h4>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-slate-400">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-orange-300/80">
               <li>Dental Implants</li>
               <li>Clear Orthodontics</li>
               <li>Root Canal Therapy</li>
@@ -92,7 +102,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li className="flex gap-3 items-start">
-                <MapPin className="size-5 text-sky-400 flex-shrink-0 mt-0.5" />
+                <MapPin className="size-5 text-orange-400 flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-slate-400 leading-relaxed">
                   D.No 10/84, Balaramunipet,
                   <br />
@@ -102,7 +112,7 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex gap-3 items-center">
-                <Phone className="size-5 text-sky-400 flex-shrink-0" />
+                <Phone className="size-5 text-orange-400 flex-shrink-0" />
                 <a
                   href="tel:+919603465372"
                   className="text-sm text-slate-400 hover:text-white transition-colors"
@@ -111,7 +121,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex gap-3 items-start">
-                <Mail className="size-5 text-sky-400 flex-shrink-0 mt-0.5" />
+                <Mail className="size-5 text-orange-400 flex-shrink-0 mt-0.5" />
                 <div className="text-sm text-slate-400 space-y-1">
                   <a
                     href="mailto:Keerthidentalcare999@gmail.com"
@@ -120,6 +130,15 @@ export default function Footer() {
                     Keerthidentalcare999@gmail.com
                   </a>
                 </div>
+              </li>
+              <li className="flex gap-3 items-center">
+                <Calendar className="size-5 text-orange-400 flex-shrink-0" />
+                <button
+                  onClick={open}
+                  className="text-sm text-slate-400 hover:text-white transition-colors text-left cursor-pointer"
+                >
+                  Book Appointment
+                </button>
               </li>
             </ul>
           </div>
