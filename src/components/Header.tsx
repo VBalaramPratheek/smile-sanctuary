@@ -53,8 +53,7 @@ export default function Header() {
             Chief Clinician
           </Link>
           <Link
-            to="/"
-            hash="services"
+            to="/specialties"
             className="text-brand-900/70 transition-colors hover:text-brand-600 data-[status=active]:text-brand-900 data-[status=active]:font-semibold"
           >
             Specialties
@@ -113,8 +112,7 @@ export default function Header() {
             Chief Clinician
           </Link>
           <Link
-            to="/"
-            hash="services"
+            to="/specialties"
             onClick={closeMenu}
             className="text-base font-semibold text-brand-900/80 hover:text-brand-600 transition-colors py-2 border-b border-brand-900/5"
           >

@@ -120,8 +120,7 @@ function Index() {
                     Book Appointment
                   </button>
                   <Link
-                    to="/"
-                    hash="services"
+                    to="/specialties"
                     className="rounded-full border border-white/20 bg-white/5 px-8 py-4 font-bold text-white transition-all hover:bg-white/10 backdrop-blur-sm"
                   >
                     View Specialties

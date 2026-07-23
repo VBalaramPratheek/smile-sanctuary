@@ -49,8 +49,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/"
-                  hash="services"
+                  to="/specialties"
                   className="text-sm text-slate-400 hover:text-white transition-colors"
                 >
                   Specialties
